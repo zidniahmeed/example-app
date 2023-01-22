@@ -34,3 +34,24 @@ Route::get('/detail/{id}',[CrudController::class, 'detail']);
 Route::post('/update/{id}',[CrudController::class, 'update']);
 
 
+Route::prefix('/siswa')->group(function(){
+    Route::get('/',[SiswaController::class, 'index'])->name('siswa');
+    Route::get('/create',[SiswaController::class, 'create']);
+    Route::post('/store',[SiswaController::class, 'store']);
+    Route::get('/delete/{id}',[SiswaController::class, 'delete']);
+    Route::get('/edit/{id}',[SiswaController::class, 'edit']);
+    Route::get('/detail/{id}',[SiswaController::class, 'detail']);
+    Route::post('/update/{id}',[SiswaController::class, 'update']);
+}); 
+
+Route::prefix('/kelas')->group(function(){
+    Route::get('/',[KelasController::class, 'index'])->name('kelas');
+    Route::get('/create',[KelasController::class, 'create']);
+    Route::post('/store',[KelasController::class, 'store']);
+    Route::get('/delete/{id}',[KelasController::class, 'delete']);
+    Route::get('/edit/{id}',[KelasController::class, 'edit']);
+    Route::get('/detail/{id}',[KelasController::class, 'detail']);
+    Route::post('/update/{id}',[KelasController::class, 'update']);
+}); 
+
+
