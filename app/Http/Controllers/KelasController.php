@@ -23,9 +23,6 @@ class KelasController extends Controller
         $kelas = $request->kelas;
         $kode =  $request->kode;
         
-
-        return $request->all();
-
         $data->kelas = $kelas.$kode;
         
 

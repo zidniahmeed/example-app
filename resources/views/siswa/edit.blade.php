@@ -11,11 +11,14 @@
 
         <div class="mb-3">
             <label class="form-label">kelas</label>
-            <select name="id_kelas" class="form-select" " >
+            <select name="id_kelas" class="form-select">
+
                 <option value="{{$data->id_kelas}}">{{$data->Kelas->kelas}}</option>
+
                 @foreach (App\Models\Kelas::get() as $item)
                     <option value="{{$item->id}}">{{$item->kelas}}</option>
                 @endforeach
+
             </select>
         </div>
 
