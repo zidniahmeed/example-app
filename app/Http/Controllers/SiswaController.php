@@ -24,18 +24,18 @@ class SiswaController extends Controller
         $data->nama = $request->nama;
         $data->id_kelas = $request->id_kelas;
         $data->jenis_kelamin = $request->jenis_kelamin;
+        $images = null;
+        
+        if($request->hasFile('images')){
+            $file = $request->file('images');
+            $name = date('YmdHis').'.'.$file->getClientOriginalExtension();
+            $file->move(public_path().'/siswa_images',$name);
+            $images = $name; 
+        }else{
+            $images = $request->images;
+        }
 
-        $request->validate([
-            
-            'foto' => 'required|file|image|max:1000',
-            ]);
-
-        $file = $request->file('foto');
-        $name = $file->getClientOriginalName();
-        $file->move('/foto_siswa', $name);
-        // $image = $name;
-
-        $data->foto = $name;
+        $data->foto = $images;
         $data->save();
 
         return redirect()->route('siswa')->with('sukses', 'data berhasil ditambahkan');;
@@ -68,6 +68,22 @@ class SiswaController extends Controller
         $data->id_kelas = $request->id_kelas;
         $data->jenis_kelamin = $request->jenis_kelamin;
 
+
+
+        $images = null;
+        $imagesOld = $data->foto; 
+        if($request->hasFile('images')){
+            $file = $request->file('images');
+            $name = date('YmdHis').'.'.$file->getClientOriginalExtension();
+            $file->move(public_path().'/siswa_images',$name);
+            $images = $name; 
+        }else{
+            $images = $imagesOld;
+        }
+        
+return $data;
+
+        $data->foto = $images;
 
         $data->save();
 

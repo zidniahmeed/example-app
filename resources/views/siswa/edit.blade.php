@@ -2,7 +2,7 @@
 @section('title', 'crud')
 
 @section('content')
-    <form action="/siswa/update/{{$data->id}}" method="post">
+    <form action="/siswa/update/{{$data->id}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label class="form-label">nama</label>
@@ -20,6 +20,15 @@
                 @endforeach
 
             </select>
+        </div>
+
+        <img src="/siswa_images/{{$data->foto}}" alt="" width="100">
+
+        <div class="mb-3">
+            <label class="form-label">foto</label>
+            {{-- <input type="hidden" class="form-control" name="images_old" value="{{$data->foto}}"> --}}
+
+            <input type="file" class="form-control" name="images" value="{{$data->foto}}">
         </div>
 
         <div class="mb-3">

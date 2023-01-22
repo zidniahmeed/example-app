@@ -11,7 +11,7 @@
 
         <div class="mb-3">
             <label class="form-label">foto</label>
-            <input type="file" class="form-control" name="foto" required>
+            <input type="file" class="form-control" name="images" required>
         </div>
 
         <div class="mb-3">

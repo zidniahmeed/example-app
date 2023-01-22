@@ -19,14 +19,19 @@ class KelasController extends Controller
     public function store(Request $request){
         
         $data = new Kelas;
+        $data =  $request->validate([
+            'kelas' => 'require|max:10'
+        ]);
+
+        dd($data);
+
+        // $kelas = $request->kelas;
+        // $kode =  $request->kode;
         
-        $kelas = $request->kelas;
-        $kode =  $request->kode;
-        
-        $data->kelas = $kelas.$kode;
+        // $data->kelas = $kelas.$kode;
         
 
-        $data->save();
+        // $data->save();
 
         return redirect()->route('kelas')->with('sukses', 'data berhasil ditambahkan');;
 

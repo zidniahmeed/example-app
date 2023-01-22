@@ -18,6 +18,7 @@
         <thead>
             <tr>
                 <th scope="col">no</th>
+                <th scope="col">foto</th>
                 <th scope="col">nama</th>
                 <th scope="col">kelas</th>
                 <th scope="col">jenis_kelamin</th>
@@ -31,6 +32,9 @@
             @foreach ($data as $item)
                 <tr>
                     <th scope="row">{{ $no++ }}</th>
+                    <td>
+                        <img src="/siswa_images/{{ $item->foto }}" width="100"  alt="">
+                    </td>
                     <td>{{ $item->nama }}</td>
                     <td>{{ $item->Kelas->kelas }}</td>
                     <td>{{ $item->jenis_kelamin }}</td>
